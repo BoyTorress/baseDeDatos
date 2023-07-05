@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PROYECTO PAGINA WEB</title>
+    <link rel="stylesheet" href="index.css">
+
+    <script>
+        function mostrarSeccion(seccionId) {
+            // Ocultar todas las secciones
+            var secciones = document.getElementsByTagName("section");
+            for (var i = 0; i < secciones.length; i++) {
+                secciones[i].style.display = "none";
+            }
+
+            // Mostrar la sección seleccionada
+            var seccion = document.getElementById(seccionId);
+            if (seccion) {
+                seccion.style.display = "block";
+            }
+        }
+
+        function mostrarTabla(tablaId) {
+            // Ocultar todas las tablas en la página principal
+            var tablas = document.getElementsByClassName("tabla-principal");
+            for (var i = 0; i < tablas.length; i++) {
+                tablas[i].style.display = "none";
+            }
+
+            // Mostrar la tabla seleccionada
+            var tabla = document.getElementById(tablaId);
+            if (tabla) {
+                tabla.style.display = "block";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <header id="barra">
+        <div class="container">
+            <p class="logo"></p>
+            <nav>
+                <a href="#" onclick="mostrarSeccion('humedad'); mostrarTabla('tabla-humedad');">Ver mediciones de humedad</a>
+                <a href="#" onclick="mostrarSeccion('luz'); mostrarTabla('tabla-luz');">Ver mediciones de Luminosidad</a>
+                <a href="#" onclick="mostrarSeccion('detectados'); mostrarTabla('tabla-detectados');">Ver Eventos Detectados</a>
+                <a href="formulario.php">Formulario</a>
+                <a href="index.html">Volver a la página principal</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="hero">
+            <h1>KIT <br>INVERNADERO</h1>
+            <a class="botonPrincipal" href="#descripcion">DESCRIPCION DEL PROYECTO!</a>
+        </section>
+
+        <section id="descripcion">
+            <div class="container">
+              <div class="img-container">
+                <img src="descripcion.jpg" alt="Imagen lateral">
+              </div>
+              <div class="texto">
+                <h2>Quienes <span class="color-acento">Somos</span></h2>
+                <p>El gobierno regional está solicitando un prototipo funcional de una solución basada en IoT que se basa en ayudar a los invernaderos locales a reducir sus mermas. Este proyecto utiliza un Arduino para realizar tareas como la detección de niveles de luz solar y el despliegue de un toldo mediante un servo motor para proteger las flores en caso de niveles bajos de luz. Además, el Arduino detecta la presencia de fauna cercana a las flores y cierra el toldo para evitar daños. También mide los niveles de humedad en el suelo y, en caso de niveles bajos, abre un grifo para regar el suelo y luego lo cierra cuando se alcanzan los niveles requeridos. Toda esta información se registra en una página web que será desarrollada por el grupo de trabajo encargado del proyecto.</p>
+              </div>
+            </div>
+          </section>
+          
+
+        <section id="nuestros-programas">
+            <h2>Nuestros Programas</h2>
+            <div class="programas">
+                <div class="carta">
+                    <h3>Niveles de Humedad</h3>
+                    <p>A la fecha se han realizado XYZ mediciones<br>La medición de humedad más alta registrada es X<br>La medición de humedad más baja registrada es Y<br>La medición de humedad promedio es Z</p>
+                    <button onclick="mostrarSeccion('humedad'); mostrarTabla('tabla-humedad');">Ver tabla de humedad</button>
+                </div>
+                <div class="carta">
+                    <h3>Eventos</h3>
+                    <p>A la fecha se han detectado XYZ eventos.<br>Se han detectado X eventos de activación de riesgo sequedad del suelo.<br>Se han detectado Y eventos de activación de toldo protector por proximidad por aves.<br>Se han detectado Z eventos de activación de toldo protector por bajos niveles de luz (noche).</p>
+                    <button onclick="mostrarSeccion('detectados'); mostrarTabla('tabla-detectados');">Ver tabla de eventos</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="humedad" class="tabla-container">
+            <table id="tabla-humedad" class="tabla-principal">
+                <tr>
+                    <th><ins><center><big>Fecha</big></center></ins></th>
+                    <th><ins><center><big>Hora</big></center></ins></th>
+                    <th><ins><center><big>Humedad del suelo</big></center></ins></th>
+                </tr>
+                <tr>
+                    <td><center>04/07/2023</center></td>
+                    <td><center>13:20:00</center></td>
+                    <td><center>385%</center></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="luz" class="tabla-container">
+            <table id="tabla-luz" class="tabla-principal">
+                <tr>
+                    <th><ins><center><big>Fecha</big></center></ins></th>
+                    <th><ins><center><big>Hora</big></center></ins></th>
+                    <th><ins><center><big>Niveles de Luz</big></center></ins></th>
+                </tr>
+                <tr>
+                    <td><center>04/07/2023</center></td>
+                    <td><center>13:23:00</center></td>
+                    <td><center>670%</center></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="detectados" class="tabla-container">
+            <table id="tabla-detectados" class="tabla-principal">
+                <tr>
+                    <th><ins><center><big>Fecha</big></center></ins></th>
+                    <th><ins><center><big>Hora</big></center></ins></th>
+                    <th><ins><center><big>Eventos detectados</big></center></ins></th>
+                </tr>
+                <tr>
+                    <td><center>04/07/2023</center></td>
+                    <td><center>13:25:00</center></td>
+                    <td><center>Apertura/Cierre de toldo</center></td>
+                </tr>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>
